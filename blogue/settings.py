@@ -81,9 +81,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'blogue',
-        'HOST': 'localhost',
-        'PORT': '',
-        'USER': 'zoot',
+        'HOST': '103.199.173.14',
+        'PORT': '3306',
+        'USER': 'owaishk',
         'PASSWORD': 'h3ll0w0rld',
     }
 }
