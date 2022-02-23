@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Blogue | Add Comment
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container"> 
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn  btn-outline-info">Post</button>
+            <p class="mt-3 text-danger">Note: Comments cannot be deleted</p>
+        </form>
+    </div>
+</div>
+
+ <script>
+        var name = "{{user.first_name}} {{user.last_name}}";
+        document.getElementById("name").value = name;
+        
+        var username = "{{user.username}}"
+        document.getElementById("username").value = username; 
+    </script>
+{% else %}
+    <div class="container my-5">
+    <div class="alert alert-danger" role="alert">
+     <a href="{% url 'login' %}" class="alert-link">Login</a>
+      to Comment on this post.
+    </div>
+    </div>
+{% endif %}
+{% endblock %}
+
+    

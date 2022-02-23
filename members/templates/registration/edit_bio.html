@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Blogue | Edit Bio
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.id == profile.user.id %}
+        <div class="container me-5">
+        <h1 class="my-3">Edit Bio</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <button type="submit" class="btn btn-outline-primary mb-5">Update Bio</button>
+            </form>
+        </div>
+
+        <script>
+            var name = "{{user.id}}";
+            document.getElementById("author_id").value = name;
+
+        </script>
+    {% else %}
+        <div class="container my-5">
+            <div class="alert alert-danger" role="alert">
+                You are not the correct user to change the bio.
+            </div>
+        </div>
+    {% endif %}
+{% else %}
+    <div class="container my-5">
+    <div class="alert alert-danger" role="alert">
+     <a href="{% url 'login' %}" class="alert-link">Login</a>
+      to update Bio.
+    </div>
+    </div>
+{% endif %}
+{% endblock %}

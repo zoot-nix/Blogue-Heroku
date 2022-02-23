@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Blogue | Learn
+{% endblock %}
+
+{% block content %}
+
+
+<div class=" container accordion mb-5" id="accordionPanelsStayOpenExample">
+
+    <!-- Accordion Item 1 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">
+                IT & Computer Science
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+                <div class="row row-cols-1 row-cols-md-4 mx-auto text-center container">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Data Science Professional</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">IBM</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>Build data science skills, learn Python & SQL, analyze & visualize data, build machine learning models.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.coursera.org/professional-certificates/ibm-data-science' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">R Programming</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Stanford</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>This course covers an introduction to R, learn to work with external data sets, write functions, and hear from one of the co-creators of R, Robert Gentleman.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-primary" onclick="location.href='https://online.stanford.edu/courses/xfds112-r-programming-fundamentals' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Machine Learning</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Stanford</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>This course provides a broad introduction to machine learning, datamining, and statistical pattern recognition.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.coursera.org/learn/machine-learning' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">IT Automation</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Google</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>Manage IT resources at scale, both for physical machines and virtual machines in the cloud. Automate tasks by writing Python scripts.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-primary" onclick="location.href='https://www.coursera.org/professional-certificates/google-it-automation' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Accordion Item 2 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseTwo">
+                Business
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body">
+                <div class="row row-cols-1 row-cols-md-4 mx-auto text-center container">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Analytics Academy</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Google</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>Analytics Academy helps you learn about Google's measurement tools so that you can grow your business through intelligent data collection and analysis.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-primary" onclick="location.href='https://analytics.google.com/analytics/academy/' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Financial Markets</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Yale</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li> Introduction to risk management and behavioral finance principles to understand the real-world functioning of securities, insurance, and banking industries.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.coursera.org/learn/financial-markets-global' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Business Strategy</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Uni. of Virginia</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>You'll learn how to evaluate industry evolution, build and sustain competitive advantage, formulate and assess business strategies, and align efforts to organizational strategy.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-primary" onclick="location.href='https://www.coursera.org/specializations/business-strategy' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Entrepreneurship</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">HarvardX</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>Explore how entrepreneurship and innovation tackle complex social problems in emerging economies.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.edx.org/course/entrepreneurship-in-emerging-economies' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accordion Item 3 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseThree">
+                Digital Marketing
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingThree">
+            <div class="accordion-body">
+                <div class="row row-cols-1 row-cols-md-3 mx-auto text-center container">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Marketing in a Digital World</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Uni. of Illinois</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>This course examines how new digital tools, such as the Internet and smartphones are revolutionizing the world of marketing by changing the roles both firms and consumers. </li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.coursera.org/learn/marketing-digital?specialization=digital-marketing' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Fundamentals of Digital Marketing</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Google</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>Master the basics of digital marketing with Google's Interactive Advertising Bureau-accredited course, created by Google trainers, free of charge.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-primary" onclick="location.href='https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Digital Marketing Strategy</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">EDX</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>It's essential to gain a greater understanding of your target customer so this course will teach you how to identify the different demographics, behaviours and needs of your consumers online.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.coursera.org/learn/machine-learning' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Accordion Item 4 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFour">
+                Blockchain
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingFour">
+            <div class="accordion-body">
+
+                <div class="row row-cols-1 row-cols-md-3 mx-auto text-center container">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Bitcoin and Cryptocurrency</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Princeton Uni.</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>How does Bitcoin work?  How secure are your Bitcoins?<br>
+                                        This course, explains everything you need to be able to separate fact from fiction when reading claims about Bitcoin and other cryptocurrencies.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.coursera.org/learn/cryptocurrency' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Blockchain for Business</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">Linux Foundation</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>Understand what blockchain is, and gain an appreciation for this transformative technology and its impact around the globe by analyzing future trends in technology, business, and institutions.</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.edx.org/course/blockchain-understanding-its-uses-and-implications' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Blockchain Fundamentals</h4>
+                            </div>
+                            <div class="card-body">
+                                <h3><small class="text-muted fw-light">BerkeleyX</small></h3>
+                                <ul class="list-unstyled mt-3 mb-4">    
+                                    <li>Learn the fundamentals of Bitcoin and the Cryptocurrency space, including the basics of smart contracts, the Ethereum platform andhow to build decentralized applications..</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-outline-primary" onclick="location.href='https://www.edx.org/course/bitcoin-and-cryptocurrencies' ">Enroll</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

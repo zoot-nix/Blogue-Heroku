@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<!--startof Cryptocurrency Price Widget-->
+<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+<div id="coinmarketcap-widget-marquee" coins="1,1027,3890,2010,6636,74,1958,3794" currency="INR" transparent="true"
+  show-symbol-logo="true"></div>
+<!--endof Cryptocurrency Price Widget-->
+
+<!--Welcome-->
+<div class="container col-xl-10 col-xxl-10 mt-3">
+  <div class="row align-items-center g-lg-5">
+    <div class="col-md-10 mx-auto col-lg-5">
+      <form class="p-md-1x">
+        <img class="my-3" src="{% static 'blogueApp/img/Blogue-Canva.svg'%}" width="100%" height="400"></img>
+      </form>
+    </div>
+    <div class="col-lg-7 text-center text-lg-start">
+      <h2 class="display-7 fw-bold lh-1 mb-3">Welcome.</h1>
+        <p class="col-lg-10 fs-4">At Blogue, we are creating a network that enables people to exhibit their intelligence. To show your talent to the world, To connect with other minds, an area where individual brainwork matters.
+          <p class="col-lg-10 fs-4" >
+            Go ahead, what are you waiting for? Sign Up today and start posting!
+          </p>
+        </p>
+        
+    </div>
+  </div>
+</div>
+
+<!--Masonry-->
+<main class="container my-5 py-5">
+
+  <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 714px;">
+    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
+      <div class="card">
+        <img class="bd-placeholder-img card-img-top" width="100%" height="250"
+          src="{% static 'blogueApp/img/language.png' %}"></img>
+
+        <div class="card-body">
+          <h5>Learn a new Language.</h5>
+          <p class="card-text">Studies have shown that speaking a foreign language actually improves the functionality
+            of your brain! It's never too late to start. </p>
+          <a href="https://www.duolingo.com/" target="_blank" class="text-muted">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 33.3333%; top: 0px;">
+      <div class="card bg-primary text-white text-left p-3">
+        <figure class="p-3 mb-0">
+          <blockquote class="blockquote">
+            <p>When something is important enough, you do it even if the odds are not in your favor.</p>
+          </blockquote>
+          <figcaption class="blockquote-footer mb-0 text-muted">
+            Elon Musk.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 66.6667%; top: 0px;">
+      <div class="card">
+        <img class="bd-placeholder-img card-img-top" width="100%" height="350"
+          src="{% static 'blogueApp/img/crypto.jpg' %}"></img>
+
+
+        <div class="card-body">
+          <h5>How to invest in Cryptocurrency?</h5>
+          <p class="card-text">To start trading, you will first need to set up an account. You can invest as little as
+            ₹100 to begin with.</p>
+          <p class="card-text"><a class="text-muted" href="{% url 'article-detail' 1 %}">Learn More</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
+      <div class="card">
+        <img class="bd-placeholder-img card-img-top" width="100%" height="250"
+          src="{% static 'blogueApp/img/red-bull-wing-finder.png' %}"></img>
+
+        <div class="card-body">
+          <h5>Take the RedBull Test</h5>
+          <p class="card-text">The Red Bull Wingfinder is an assessment that focuses on your personality traits, and it
+            can help you improve in areas that you naturally excel at.</p>
+          <a href="https://www.redbull.com/int-en/wingfinder" target="_blank" class="text-muted">Start Wingfinder</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 33.3333%; top: 171px;">
+      <div class="card bg-primary text-white text-left p-3">
+        <figure class="mb-0">
+          <blockquote class="blockquote">
+            <p>Blogging isn't about publishing as much as you can. It's about publishing as smart as you can. </p>
+          </blockquote>
+          <figcaption class="blockquote-footer mb-0 text-muted">
+            Jon Morrow.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+</main>
+
+<!--Articles-->
+<div class="container">
+  <div class="row g-5">
+
+    <div class="col-md-8">
+      <article class="blog-post">
+        <h1 class="px-5 mb-3 text-left">Articles</h1>
+        <hr style="border: 1px solid black">
+        <ul class="px-5 mt-5 text-right text-primary list-unstyled">
+          {% for post in object_list %}
+          <li>
+            <h3>{{ post.title }}</h3>
+            <small class="text-secondary">
+              <a href="{% url 'profile-page' post.author.profile.id %}" class="" style="text-decoration: none;">{{post.author.first_name }} {{post.author.last_name}} - {{ post.post_date}}</a>
+            </small>
+            <a style="text-decoration:none;" href="{% url 'category-list' post.category.name %}"><span class="badge rounded-pill bg-info">
+              {{post.category}}</span>
+            </a>
+            <br>
+            {{ post.body | safe | slice:":100"}}..<a style="text-decoration:none;" class="text-info"
+              href="{% url 'article-detail' post.pk %}"> (Read More)</a>
+            <br><br>
+            {% if user.is_authenticated and post.author.id == user.id %}
+            <a class="text-secondary align-items-right" style="text-decoration:none;"
+              href="{% url 'edit-post' post.pk %}">Edit |</a>
+            <a class="text-secondary align-items-right" style="text-decoration:none;"
+              href="{% url 'delete-post' post.pk %}">Delete</a>
+            {% endif %}
+          </li>
+          <hr>
+          {% endfor %}
+        </ul>
+      </article>
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 rounded">
+          <h4>About</h4>
+          <p class="mb-0">Do you want to express your amazing ideas and thoughts to the world?<p class="text-primary"> You are in the right place for sure!</p></p>
+        </div>
+
+        <div class="p-4 mb-3 bg-light rounded">
+          <h4 class="text-center">Subscribe to our monthly newsletter!</h4>
+          <div class="input-group mt-4">
+            <button class="btn btn-primary mx-auto" type="button"
+              onclick="location.href='{% url 'subscribe-newsletter'%}' ">Show me how</button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="p-4">
+        <h4>Connect with us</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<!---Team Footer-->
+<footer class="page-footer bg-team">
+  <div class="container">
+    <div class="row px-5">
+      <div class="col-md-12 pt-5 pb-2 ourTeam-hedding text-center ">
+        <h1 class="text-primary">Meet The Team</h1>
+        <div class="container ">
+        <p class="lead">Different levels of work require different people with their enhanced personal skills, so here's the team behind this project.
+        </p>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="row section-success ourTeam-box text-center">
+          <div class="col-md-12 section1">
+            <img src="{% static 'blogueApp/img/baycNFT.png' %}">
+          </div>
+          <div class="col-md-12 section2 pb-3">
+            <a href="{% url 'profile-page' 1 %}" class="" style="text-decoration: none;"><p>OWAIS SHAIKH</p></a>
+            <span>Co-Founder of Blogue, Developer.</span>
+          </div>
+          <div class="col-md-12 section3">
+            <a href="https://www.instagram.com/theowaishaikhh/">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="row section-info ourTeam-box text-center">
+          <div class="col-md-12 section1">
+            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t2.jpg">
+          </div>
+          <div class="col-md-12 section2 pb-3">
+            <a href="{% url 'profile-page' 2 %}" class="" style="text-decoration: none;"><p>MARWAH PARKAR</p></a>
+            <span>Co-Founder of Blogue, Operations Executive.</span>
+          </div>
+          <div class="col-md-12 section3">
+            <a href="https://www.instagram.com/marwaahhh.p/">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-copyright py-3 bg-footer mt-5 row">
+    <div class="col-5 text-start ms-5">
+      © 2022 Copyright: Blogue Inc.
+    </div>
+    <div class="col-5 text-end ">
+      <i class="fa fa-instagram mx-3 px-2" aria-hidden="true"></i>
+      <i class="fa fa-facebook mx-3 px-2" aria-hidden="true"></i>
+      <i class="fa fa-twitter mx-3 px-1" aria-hidden="true"></i>
+      <i class="fa fa-github mx-3 px-2" aria-hidden="true"></i>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Blogue | Add Post
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if request.user.profile %}
+    <div class="container me-5">
+     <h1 class="my-3">Add New Post</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p}}
+            {{ form.media}}
+            <button type="submit" class="btn btn-outline-primary mb-5">Post</button>
+        </form>
+    </div>
+
+    <script>
+        var name = "{{user.id}}";
+        document.getElementById("author_id").value = name;
+
+    </script>
+{% else %}
+<div class="container my-5">
+    <div class="alert alert-danger" role="alert">
+        <a href="{% url 'create-profile-page' %}" class="alert-link">Create a Profile</a>
+         to Add posts.
+       </div>
+    </div>
+    </div>
+{% endif %}
+
+{% else %}
+    <div class="container my-5">
+    <div class="alert alert-danger" role="alert">
+     <a href="{% url 'login' %}" class="alert-link">Login</a>
+      to Add posts.
+    </div>
+    </div>
+{% endif %}
+{% endblock %}

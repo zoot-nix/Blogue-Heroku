@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Blogue | Profile
+{% endblock %}
+
+
+{% block content %}
+<div class="container col-xxl-10">
+    <div class="row flex-lg-row align-items-center">
+        <div class="col-10 col-sm-8 col-lg-8">
+            <div class="mb-3" style="max-width: 540px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if page_user.profile_picture %}
+                        <a href="{% url 'profile-page' page_user.id %}">
+                            <img src="{{ page_user.profile_picture.url }}" class="img-fluid rounded-circle" height=150px
+                                width=150px>
+                        </a>
+                        {% else %}
+                        <img src="{% static 'blogueApp/img/defaultPP.jpg' %}" class="mx-3 my-4 img-fluid rounded-circle"
+                            height=150px width=150px>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="mb-1">{{ page_user.user.first_name }} {{page_user.user.last_name}}</h1>
+                            <em>@{{page_user}}</em>
+                            <br>
+                            <p class="card-text mt-4"><small class="text-muted">{{ page_user.headline}}</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mx-3">
+        <h4 class="mt-2">About Me</h4>
+        <p class="lead mb-5">{{ page_user.bio | linebreaksbr }}</p>
+        <h4 class="mb-3">Connect with me on</h4>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <ul class="list-group list-group-horizontal">
+                {% if page_user.instagram_url %}
+                <li style="text-decoration:none; display:block" class="">
+                    <a href="{{page_user.instagram_url}}" style="text-decoration:none" target="_blank">
+                        <img src="{% static 'blogueApp/img/instagram.png' %}" height="30px" width="30px">
+                    </a>
+                </li>
+                {% endif %}
+                {% if page_user.facebook_url %}
+                <li style="text-decoration:none; display:block" class="ms-3">
+                    <a href="{{page_user.facebook_url}}" style="text-decoration:none" target="_blank">
+                        <img src="{% static 'blogueApp/img/facebook.png' %}" height="30px" width="30px">
+                    </a>
+                </li>
+                {% endif %}
+                {% if page_user.website_url %}
+                <li style="text-decoration:none; display:block" class="ms-3">
+                    <a href="{{page_user.website_url}}" style="text-decoration:none" target="_blank">
+                        <img src="{% static 'blogueApp/img/website.png' %}" height="30px" width="30px">
+                    </a>
+                </li>
+                {% endif %}
+                {% if page_user.linkedin_url %}
+                <li style="text-decoration:none; display:block" class="ms-3">
+                    <a href="{{page_user.linkedin_url}}" style="text-decoration:none" target="_blank">
+                        <img src="{% static 'blogueApp/img/linkedin.png' %}" height="30px" width="30px">
+                    </a>
+                </li>
+                {% endif %}
+                {% if page_user.github_url %}
+                <li style="text-decoration:none; display:block" class="ms-3">
+                    <a href="{{page_user.github_url}}" style="text-decoration:none" target="_blank">
+                        <img src="{% static 'blogueApp/img/github.png' %}" height="30px" width="30px">
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

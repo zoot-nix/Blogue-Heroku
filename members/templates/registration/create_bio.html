@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Blogue | Create Bio
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+        <div class="container me-5">
+        <h1 class="my-3">Edit Bio</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <button type="submit" class="btn btn-outline-primary mb-5">Create Bio</button>
+            </form>
+        </div>
+{% else %}
+    <div class="container my-5">
+    <div class="alert alert-danger" role="alert">
+     <a href="{% url 'login' %}" class="alert-link">Login</a>
+      to create Bio.
+    </div>
+    </div>
+{% endif %}
+{% endblock %}

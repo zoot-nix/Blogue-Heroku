@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Blogue | {{cats}}
+{% endblock %}
+
+{% block content %}
+
+<!--Articles-->
+{% if category_posts %}
+    <div class="container">
+        <div class="row g-5">
+
+            <div class="col-md-8">
+            <article class="blog-post">
+                <h1 class="px-5 mb-3 mt-5 text-left">Category - <small class="text-muted">{{cats}}</small></h1>
+                <hr style="border: 1px solid black">
+                <ul class="px-5 mt-5 text-right text-primary list-unstyled">
+                    {% for post in category_posts %}
+                    <li>  
+                    <h3>{{ post.title }}</h3>
+                    <small class="text-secondary">{{ post.author.first_name }} {{post.author.last_name}}  - {{ post.post_date}} </small>
+                    <a href="{% url 'category-list' post.category.name %}"><span class="badge rounded-pill bg-info">{{ post.category }}</span></a>
+                    <br>
+                    {{ post.body | safe | slice:":100"}}..<a style="text-decoration:none;" class="text-info" href = "{% url 'article-detail' post.pk %}"> (Read More)</a>
+                    <br><br>
+                    {% if user.is_authenticated %}
+                    <a class="text-secondary align-items-right" style="text-decoration:none;" href="{% url 'edit-post' post.pk %}">Edit |</a> 
+                    <a class="text-secondary align-items-right" style="text-decoration:none;" href="{% url 'delete-post' post.pk %}">Delete</a>
+                    {% endif %}
+                    </li>
+                    <hr>
+                    {% endfor %}
+                </ul>
+            </article>
+            </div>
+
+            <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-light rounded">
+                <h4>About</h4>
+                <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers,
+                    content, or something else entirely. Totally up to you.</p>
+                </div>
+
+                <div class="p-4">
+                <h4>Authors</h4>
+                <ol class="list-unstyled mb-0">
+
+                    <li>
+                    <div class="d-flex text-muted pt-3">
+                        <img src="{% static 'blogueApp/img/profile.jpg' %}" height="50px" width="50px" class="rounded-circle">
+                        <p class="mt-3 mx-2 small lh-sm">@username</p>
+                    </div>
+                    </li>
+
+                    <li>
+                    <div class="d-flex text-muted pt-3">
+                        <img src="{% static 'blogueApp/img/profile.jpg' %}" height="50px" width="50px" class="rounded-circle">
+                        <p class="mt-3 mx-2 small lh-sm">@username</p>
+                    </div>
+                    </li>
+
+                    <li>
+                    <div class="d-flex text-muted pt-3">
+                        <img src="{% static 'blogueApp/img/profile.jpg' %}" height="50px" width="50px" class="rounded-circle">
+                        <p class="mt-3 mx-2 small lh-sm">@username</p>
+                    </div>
+                    </li>
+
+                </ol>
+                </div>
+
+                <div class="p-4">
+                <h4>Connect with us</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+                </div>
+            </div>
+            </div> 
+
+        </div>
+    </div> 
+{% else %}
+    <div class="container my-5">
+        <div class="alert alert-danger" role="alert">
+        This Page doesn't exist yet. Add a post!
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

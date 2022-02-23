@@ -1,0 +1,115 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{% static 'blogueApp/img/B-Glitch.svg'%}" type="image/b-icon">
+
+
+  <!-- Bootstrap CSS -->
+  <link href="{% static 'blogueApp/css/main.css'%}" rel="stylesheet">
+  <link href="{% static 'blogueApp/css/offcanvas.css'%}" rel="stylesheet">
+  <link href="{% static 'blogueApp/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'blogueApp/css/team.css'%}" rel="stylesheet">
+
+  <title>
+  {% block title %}
+  Blogue - like no other.
+  {% endblock %}
+  </title>
+
+</head>
+<body>
+<!--Navbar Primary-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" aria-label="Main navigation">
+  <div class="container-fluid">
+    <h1 class="title-font px-2" href="#">Blogue</h1>
+    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse navbar-light bg-white" id="navbarsExampleDefault">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-4">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home'%}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'learn'%}">Learn</a>
+        </li>
+  
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add-post' %}">Add Post</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add-category' %}">Add Category</a>
+        </li>
+        
+        {% endif %}
+
+        
+      </ul>
+
+      {% if user.is_authenticated %}
+      <form class="d-flex">
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">{{ request.user }} </button>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+          {% if request.user.profile %}
+              <li><button class="dropdown-item" type="button" onclick="location.href='{% url 'profile-page' request.user.profile.id %}'">View Profile</button></li>
+          {% endif %}
+
+          {% if request.user.profile %}
+            <li><button class="dropdown-item" type="button" onclick="location.href='{% url 'bio-page' request.user.profile.id %}'">Edit Profile</button></li>
+          {% else %}
+            <li><button class="dropdown-item" type="button" onclick="location.href='{% url 'create-profile-page'%}'">Create Profile</button></li>
+          {% endif %}
+
+            <li><button class="dropdown-item" type="button" onclick="location.href='{% url 'edit-profile' %}'">Edit Account</button></li>
+            <li><button class="dropdown-item" type="button" onclick="location.href='{% url 'logout' %}'">Logout</button></li>
+          </ul>
+        </div>
+      </form>
+      {% else %}
+      <form class="d-flex">
+        <button class="btn btn-outline-primary" type="button" onclick="location.href='{% url 'login' %}'">Login</button>
+        <button class="btn btn-outline-success mx-2" type="button" onclick="location.href='{% url 'signup' %}'">Sign Up</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<!--Navbar Secondary-->
+{% if category_nav %}
+  <div class="nav-scroller bg-white mt-5">
+    <nav class="nav nav-underline" aria-label="secondary navigation">
+      <a style="color:black" class="nav-link disabled" aria-current="page" href="#">CATEGORIES</a>
+      {% for item in category_nav %}
+        <a class="nav-link" href="{% url 'category-list' item %}">{{ item }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+{% else %}
+  <div class="nav-scroller bg-white mt-5">
+  </div>
+{% endif %}
+
+{% block content %}
+
+{% endblock %}
+
+<!--Scripts-->
+<script src="{% static 'blogueApp/js/offcanvas.js'%}"></script>
+<script src="{% static 'blogueApp/js/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'blogueApp/js/bootstrap.bundle.min.js' %}"></script>
+
+
+</body>
+
+</html>

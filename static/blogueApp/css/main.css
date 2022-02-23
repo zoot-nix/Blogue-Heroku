@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+
+.title-font{
+    font-family: 'Cinzel', serif;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.img-fluid{
+    border: none;
+}
